@@ -1,0 +1,49 @@
+# Python
+   __pycache__/
+   *.py[cod]
+   *$py.class
+   *.so
+   .Python
+   venv/
+   env/
+   ENV/
+   .env
+
+   # Jupyter Notebook
+   .ipynb_checkpoints/
+   *.ipynb_checkpoints
+
+   # Data files (don't commit large datasets)
+   data/*.csv
+   data/*.dat
+   data/*.zip
+   *.csv
+   *.dat
+   !data/.gitkeep
+
+   # IDE - VSCode
+   .vscode/
+   *.code-workspace
+
+   # macOS
+   .DS_Store
+   .AppleDouble
+   .LSOverride
+
+   # Windows
+   Thumbs.db
+   ehthumbs.db
+   Desktop.ini
+
+   # PyCharm
+   .idea/
+
+   # Testing
+   .pytest_cache/
+   .coverage
+   htmlcov/
+
+   # Distribution / packaging
+   dist/
+   build/
+   *.egg-info/

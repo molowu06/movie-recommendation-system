@@ -1,5 +1,5 @@
 """file for movies & ratings data loading functions"""
-from typing import List, Optional
+from typing import Optional
 import pandas as pd
 
 def load_movies(movies_path: str) -> pd.DataFrame:

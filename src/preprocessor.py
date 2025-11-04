@@ -1,6 +1,6 @@
 """cleaning up the data (removing duplicates, missing values, etc)"""
-import pandas as pd
 from typing import Optional
+import pandas as pd
 
 def extract_year(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:
     """extracts year from movie title"""
@@ -15,6 +15,7 @@ def extract_year(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:
         return movies_df
 
 def clean_genres(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:
+    """cleans the genres columns by replacing '(no genres listed)' with NaN & splits multiple genres with ',' not '|'"""
     pass
 
 def prepare_features_for_tfidf(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:

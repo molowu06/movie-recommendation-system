@@ -27,3 +27,7 @@ def prepare_features_for_tfidf(movies_df: pd.DataFrame) -> Optional[pd.DataFrame
 def handle_missing_data(movies_df: pd.DataFrame, ratings_df: pd.DataFrame) -> Optional[tuple[pd.DataFrame, pd.DataFrame]]:
     """handles missing data in movies & ratings dataframes"""
     pass
+
+def remove_duplicates(movies_df: pd.DataFrame, ratings_df: pd.DataFrame) -> Optional[tuple[pd.DataFrame, pd.DataFrame]]:
+    """removes duplicate entries in movies & ratings dataframes"""
+    pass

@@ -15,8 +15,12 @@ def extract_year(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:
         return movies_df
 
 def clean_genres(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:
-    """cleans the genres columns by replacing '(no genres listed)' with NaN & splits multiple genres with ',' not '|'"""
-    pass
+    """cleans the genres columns by replacing '(no genres listed)' with NaN &
+    splits multiple genres with ',' not '|'"""
+    if isinstance(movies_df, pd.DataFrame):
+        movies_df['genres'] = movies_df['genres'].replace('(no genres listed)', pd.NA)
+        movies_df['genres'] = movies_df['genres'].str.replace('|', ',')
+        return movies_df
 
 def prepare_features_for_tfidf(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:
     """prepares the features for tfidf vectorization"""
@@ -26,8 +30,14 @@ def prepare_features_for_tfidf(movies_df: pd.DataFrame) -> Optional[pd.DataFrame
 
 def handle_missing_data(movies_df: pd.DataFrame, ratings_df: pd.DataFrame) -> Optional[tuple[pd.DataFrame, pd.DataFrame]]:
     """handles missing data in movies & ratings dataframes"""
-    pass
+    if isinstance(movies_df, pd.DataFrame) and isinstance(ratings_df, pd.DataFrame):
+        movies_df = movies_df.dropna(subset=['title', 'genres'])
+        ratings_df = ratings_df.dropna(subset=['userId', 'movieId', 'rating'])
+        return movies_df, ratings_df
 
 def remove_duplicates(movies_df: pd.DataFrame, ratings_df: pd.DataFrame) -> Optional[tuple[pd.DataFrame, pd.DataFrame]]:
     """removes duplicate entries in movies & ratings dataframes"""
-    pass
+    if isinstance(movies_df, pd.DataFrame) and isinstance(ratings_df, pd.DataFrame):
+        movies_df = movies_df.drop_duplicates(subset=['movieId'])
+        rating_df = ratings_df.drop_duplicates(subset=['userId', 'movieId'])
+        return movies_df, ratings_df

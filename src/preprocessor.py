@@ -70,7 +70,7 @@ def add_metadata_columns(movies_df: pd.DataFrame) -> Optional[pd.DataFrame]:
         decade_start = (y // 10) * 10
         return f"{decade_start}s"
 
-    # derive decase from a 'year' column
+    # derive decade from a 'year' column
     if 'year' in movies_df.columns:
         movies_df['decade'] = movies_df['year'].apply(get_decade)
     else:

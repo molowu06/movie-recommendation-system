@@ -22,14 +22,6 @@ for genre in chosen_genres:
     st.markdown(f"- :orange[{genre}]")
 
 
-movies_df = load_movies("data/ml-latest-small/movies.csv")
-ratings_df = load_ratings("data/ml-latest-small/ratings.csv")
-avg_ratings_df = avg_ratings(ratings_df)
-merge_df = merge_movies_ratings(movies_df, avg_ratings_df)
-
-print(merge_df)
-
-
 # dates (newest to oldest)
 # dates (oldest to newest)
 # genres

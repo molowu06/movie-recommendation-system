@@ -85,18 +85,3 @@ class MovieRecommender:
             columns.insert(2, 'avg_rating')
 
         return similar_movies[columns]
-
-    def get_recommendations_from_multiple(
-            self, movie_titles: List[str], n: int = 5) -> pd.DataFrame:
-        """get recommendations base on multiple input movies"""
-        # TODO: figure out how to properly implement this
-        pass
-
-    def get_recommendations_from_filtered(
-            self,
-            movie_title: str,
-            filtered_df: pd.DataFrame,
-            n: int = 5) -> pd.DataFrame:
-        """get recs based on a filtered dataframe of movies"""
-        pass
-        # may or may not need if we do not end up implementing tab 3

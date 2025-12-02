@@ -5,7 +5,7 @@ import time
 from data_loader import *
 
 st.title("Movie Reccomendation Software")
-st.write("Creators: Mimo Molowu, Stephanie Rojas Gonzales, Bhavana Kakumanu")
+st.write("Creators: Mimo Olowu, Stephanie Rojas Gonzales, Bhavana Kakumanu")
 st.write( "EECE 2140: Computing Fundimentals for Engineers")
 
 

@@ -1,23 +1,20 @@
 from typing import Optional
 import pandas as pd
 import numpy as np
-import time
-from src.data_loader import load_movies
-from src.data_loader import load_ratings
-from data_loader import avg_ratings
-from data_loader import merge_movies_ratings
+from data_loader import *
 from preprocessor import clean_genres
 from preprocessor import extract_year
 from recommender import *
 
-movies_df = load_movies("data/ml-latest-small/movies.csv")
-ratings_df = load_ratings("data/ml-latest-small/ratings.csv")
-avg_ratings_df = avg_ratings(ratings_df)
-merge_df = merge_movies_ratings(movies_df, avg_ratings_df)
-merge = clean_genres(merge_df)
-
-clean_movies = extract_year(merge)
-print(clean_movies)
+def cleaning_data(b: bool) -> pd.DataFrame:
+    if b:
+        movies_df = load_movies("data/ml-latest-small/movies.csv")
+        ratings_df = load_ratings("data/ml-latest-small/ratings.csv")
+        avg_ratings_df = avg_ratings(ratings_df)
+        merge_df = merge_movies_ratings(movies_df, avg_ratings_df)
+        merge = clean_genres(merge_df)
+        clean_movies = extract_year(merge)
+    return clean_movies
 
 def filter_genres(movies: pd.DataFrame, genres_chosen: list[str]) -> Optional[pd.DataFrame]:
     """Will filter through the movies dataframe for movies that have at least one of the genres
@@ -43,19 +40,23 @@ def order_alphabetically(movies: pd.DataFrame) -> Optional[pd.DataFrame]:
     """Will order all of the movies alphabetically"""
     return movies.sort_values('title')
 
+def movie_recommendations(movies: pd.DataFrame, movie_title: str, num_of_recs: int) -> pd.DataFrame:
+    """Will take in the entire movie list (or filtered list), movie title user wants to use
+    for their recommendations, and the number of recomendations they want, and give back a Dataframe
+    containing n amount of movies (including their title, genres it contains, and similarity score)"""
+    obj1 = MovieRecommender(movies)
+    recommendations = obj1.get_similar_movies(movie_title, num_of_recs)
+    return recommendations
 
-#========================
-#EX:
+#string = "Supercop 2 (Project S) (Chao ji ji hua) (1993) - ⭐ 5.0/5 (Action,Comedy,Crime,Thriller)"
 
-#users_chosen_genres = ["Horror", "Adventure"]
+#lst = string.split("⭐")
+#ugly_movie_title = lst[0]
 
-#filtered = filter_genres(clean_movies, users_chosen_genres)
+#movie_title = ugly_movie_title[:-2]
+#print(movie_title)
 
-#print(filtered)
-
-#filtered_rating = order_by_ratings(filtered)
-
-#print(filtered_rating['title'])
-
-#chosen_movie_title = filtered_rating['title'].loc[3754]
+#movies = cleaning_data(True)
+#recs = movie_recommendations(movies, "Toy Story (1995)", 3)
+#print(recs)
 

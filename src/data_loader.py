@@ -30,4 +30,3 @@ def movie_id_lookup(movies_df: pd.DataFrame, title: str) -> Optional[int]:
         return int(matches.iloc[0]['movieId'])
     return None
 
-print(load_movies("data/ml-latest-small/movies.csv"))

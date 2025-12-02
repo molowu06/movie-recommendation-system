@@ -13,5 +13,7 @@
        "[python]": {
            "editor.tabSize": 4,
            "editor.insertSpaces": true
-       }
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "python-envs.pythonProjects": []
    }

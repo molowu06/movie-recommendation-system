@@ -2,9 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import time
+from data_loader import *
 
 st.title("Movie Reccomendation Software")
-st.write("Creators: Mimo Molowu, Stephanie Rojas Gonzales, Bhavana Kakumanu")
+st.write("Creators: Mimo Olowu, Stephanie Rojas Gonzales, Bhavana Kakumanu")
 st.write( "EECE 2140: Computing Fundimentals for Engineers")
 
 
@@ -21,4 +22,9 @@ for genre in chosen_genres:
     st.markdown(f"- :orange[{genre}]")
 
 
-
+# dates (newest to oldest)
+# dates (oldest to newest)
+# genres
+# ratings
+# Alphabeticly
+#

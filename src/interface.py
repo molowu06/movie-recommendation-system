@@ -78,27 +78,27 @@ if chosen_genres:
         if option == "Average Rating":
             #sort by rating
             filtered_df = order_by_ratings(filtered_movies)
-            movie_options = [
-                f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
-                for _, row in filtered_df.iterrows()]
+            for _, row in filtered_df.iterrows():
+                string = f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
+                movie_options.append(string)
         elif option == "Newest to Oldest":
             #sort by date (newest to oldest)
             filtered_df = order_by_newest(filtered_movies)
-            movie_options = [
-                f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
-                for _, row in filtered_df.iterrows()]
+            for _, row in filtered_df.iterrows():
+                string = f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
+                movie_options.append(string)
         elif option == "Oldest to Newest":
             #sort by date (oldest to newest)
             filtered_df = order_by_oldest(filtered_movies)
-            movie_options = [
-                f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
-                for _, row in filtered_df.iterrows()]
+            for _, row in filtered_df.iterrows():
+                string = f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
+                movie_options.append(string)
         else:
             #sort alphabetically
             filtered_df = order_alphabetically(filtered_movies)
-            movie_options = [
-                f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
-                for _, row in filtered_df.iterrows()]
+            for _, row in filtered_df.iterrows():
+                string = f"{row['title']} - ⭐ {row['avg_rating']}/5 ({row['genres']})"
+                movie_options.append(string)
 
         if len(movie_options) > 0:
             st.write(f"**Movies matching your genres:** ({len(movie_options)} found)")

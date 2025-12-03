@@ -4,13 +4,28 @@ import numpy as np
 import time
 from interface_code import *
 
-st.title("Movie Recommendation Software")
-st.write("Creators: Mimo Molowu, Stephanie Rojas Gonzales, Bhavana Kakumanu")
-st.write("EECE 2140: Computing Fundamentals for Engineers")
-st.subheader("How to use website:")
-st.write("User's will first use a genre filter and filter orginzizer in order to find a movie they currently enjoy.")
-st.write("The movie they choose within this stage will be used to recommend other movies that have a high 'similarity score'.")
-st.write("The user may choose how many movies they would like recommended to them!")
+
+st.markdown("<h1 style='text-align: center;'>Movie Recomendation Software</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size:24px;'>Mimo Olowu, Stephanie Rojas Gonzales, Bhavana Kakumanu</p>", unsafe_allow_html=True)
+st.write("<p style='text-align: center; font-size:24px;'>EECE2140: Computing Fundamentals for Engineers", unsafe_allow_html=True)
+
+with st.container(border = True):
+    st.header("Can't settle on a movie? Let us help!")
+    st.subheader("Step One:")
+    st.write("Choose the genres that interest you")
+    st.subheader("Step Two:")
+    st.write("Sort by rating, date or alphebetically")
+    st.write("You now have a list of movies ready to be enjoyed!")
+    st.subheader("Want to watch more movies similar to the one you picked?")
+    st.write("Just select the amount you would like, and we will provide you with a list!")
+
+st.write("  ")
+st.write("  ")
+st.write("<p style='text-align: center; font-size:24px;'>Let's Get Started! 🎬", unsafe_allow_html=True)
+st.divider()
+st.write("  ")
+st.write("  ")
+
 
 # List of movie genres
 genres = [
@@ -23,12 +38,16 @@ genres = [
 movies_df = cleaning_data(True)
 
 #User chooses genres
-chosen_genres = st.multiselect(
-    "What's your favorite movie genres?",
-    genres
-)
+with st.container(border=True):
+    st.subheader("What are your favorite movie genres?")
+
+    chosen_genres = st.multiselect(
+        "",
+        genres
+    )
 
 #Display filtered movie list
+
 if chosen_genres:
     st.write("### Your Selected Genres & Movies:")
 

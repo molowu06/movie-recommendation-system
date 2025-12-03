@@ -16,8 +16,7 @@ class MovieRecommender:
         self.tfidf = TfidfVectorizer(
             stop_words='english',
             lowercase=True,
-            max_features=100
-        )
+            max_features=100)
 
         # check if preprocessor created preprocessed_genres column
         if 'processed_genres' not in self.movies_df.columns:

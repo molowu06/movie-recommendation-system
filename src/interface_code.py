@@ -48,15 +48,3 @@ def movie_recommendations(movies: pd.DataFrame, movie_title: str, num_of_recs: i
     recommendations = obj1.get_similar_movies(movie_title, num_of_recs)
     return recommendations
 
-#string = "Supercop 2 (Project S) (Chao ji ji hua) (1993) - ⭐ 5.0/5 (Action,Comedy,Crime,Thriller)"
-
-#lst = string.split("⭐")
-#ugly_movie_title = lst[0]
-
-#movie_title = ugly_movie_title[:-2]
-#print(movie_title)
-
-#movies = cleaning_data(True)
-#recs = movie_recommendations(movies, "Toy Story (1995)", 3)
-#print(recs)
-

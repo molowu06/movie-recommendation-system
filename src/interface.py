@@ -130,15 +130,6 @@ if chosen_genres:
 
                 recommendations_df = movie_recommendations(movies_df, movie_title, num)
 
-                #another way of showing recommendations
-                #will display the recommendations
-                #if not recommendations_df.empty:
-                #    with st.container(border = True):
-                #        st.write(f"Your {num} Recommended Movies:")
-                #        st.dataframe(recommendations_df, width="stretch")
-                #else:
-                #    st.warning("No recommendations found.")
-
                 count = 1
                 if not recommendations_df.empty:
                     with st.container(border = True):
